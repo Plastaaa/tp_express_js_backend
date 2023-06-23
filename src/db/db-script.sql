@@ -1,0 +1,1 @@
+CREATE TABLE `dbtpbackjs`.`auteur` (`id` INT NOT NULL AUTO_INCREMENT , `nom` VARCHAR(64) NOT NULL , `prenom` VARCHAR(64) NOT NULL , `genreLitt` VARCHAR(64) NOT NULL , `age` INT(3) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
