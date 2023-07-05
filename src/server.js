@@ -1,5 +1,6 @@
 const dotenv = require('dotenv')
 const express = require('express')
+const cors = require('cors')
 
 // Routes
 const auteurRoute = require('./routes/auteur.route')
@@ -11,7 +12,13 @@ const server = express()
 server.use(express.json())
 server.set('json spaces', 2)
 
-// Decla endpoints
+// Ajout de l'orgine pour les CORS
+const corsOptions = {
+  origin: '*'
+}
+server.use(cors(corsOptions))
+
+// Declaration endpoint
 server.use('/', auteurRoute)
 
 // Serveur

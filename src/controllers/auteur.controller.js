@@ -9,6 +9,7 @@ const getAllAuteurs = (req, res) => {
         message: err.message || 'Une erreur est survenue auteurs.'
       })
     } else {
+      res.setHeader('Access-Control-Allow-Origin', '*')
       res.send(results)
     }
   })
@@ -27,6 +28,7 @@ const getAuteurById = (req, res) => {
       })
     } else {
       if (auteur) {
+        res.setHeader('Access-Control-Allow-Origin', '*')
         res.send(auteur)
       } else {
         res.status(404).send({
@@ -47,6 +49,7 @@ const getAuteurByName = (req, res) => {
       })
     } else {
       if (auteur) {
+        res.setHeader('Access-Control-Allow-Origin', '*')
         res.send(auteur)
       } else {
         res.status(404).send({
@@ -76,6 +79,7 @@ const createAuteur = (req, res) => {
         message: err.message || 'Une erreur est survenue lors de la création de l\'auteur.'
       })
     } else {
+      res.setHeader('Access-Control-Allow-Origin', '*')
       res.status(201).send({
         message: 'Nouvel auteur créé avec succès.',
         id: result.insertId
@@ -99,12 +103,15 @@ const updateAuteur = (req, res) => {
     id
   }
 
+  res.setHeader('Access-Control-Allow-Origin', '*')
   auteurModel.updateAuteurInDB(nouveauAuteur, (err, result) => {
     if (err) {
+      res.setHeader('Access-Control-Allow-Origin', '*')
       res.status(500).send({
         message: err.message || 'Une erreur est survenue lors de la modification de l\'auteur.'
       })
     } else {
+      res.setHeader('Access-Control-Allow-Origin', '*')
       res.status(201).send({
         message: 'Modification de auteur effectuée avec succès.'
       })
@@ -124,6 +131,7 @@ const deleteAuteurById = (req, res) => {
       if (auteur) {
         res.send(auteur)
       } else {
+        res.setHeader('Access-Control-Allow-Origin', '*')
         res.status(404).send({
           message: 'Auteur supprimé.'
         })

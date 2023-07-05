@@ -25,7 +25,4 @@ router.put('/auteur/:id', updateAuteur)
 
 router.delete('/auteur/:id', deleteAuteurById)
 
-// Ouvrage
-// router.get('/auteur/:id/ouvrage', getOuvrageByAuteurId)
-
 module.exports = router
